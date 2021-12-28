@@ -31,10 +31,10 @@ export default {
           id: 1,
           title: 'Quest Line 1',
           quests: [{
-            id: 1, title: 'Quest 1'
+            id: 1001, title: 'Quest 1', index: 1
           },
           {
-            id: 2, title: 'Quest 2'
+            id: 1002, title: 'Quest 2', index: 2
           }]
         }]
       }
@@ -46,7 +46,7 @@ export default {
         id: nextId,
         title: 'Quest Line ' + nextId,
         quests: [{
-          id: 1, title: 'Quest 1'
+          id: nextId + '00' + 1, title: 'Quest 1', index: 1
         }]
       })
     }

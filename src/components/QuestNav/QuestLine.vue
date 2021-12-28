@@ -4,7 +4,9 @@
         <div>
           <quest v-for="quest in currentQuests"
           :key="quest.id"
+          :id="quest.id"
           :title="quest.title"
+          :index="quest.index"
           >
           </quest>
         </div>
@@ -44,9 +46,11 @@ export default {
     },
     addquest () {
       const nextId = Math.max(...this.currentQuests.map(quest => quest.id)) + 1
+      const nextIndex = Math.max(...this.currentQuests.map(quest => quest.index)) + 1
       this.currentQuests.push({
         id: nextId,
-        title: 'Quest ' + nextId
+        title: 'Quest ' + nextIndex,
+        index: nextIndex
       })
     }
   },
