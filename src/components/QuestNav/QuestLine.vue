@@ -6,8 +6,7 @@
           :key="quest.id"
           :id="quest.id"
           :title="quest.title"
-          :index="quest.index"
-          >
+          :index="quest.index">
           </quest>
         </div>
         <div id="add-quest-button" class="quest-nav-title quest-nav" @click="addquest">+</div>

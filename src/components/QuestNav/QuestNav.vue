@@ -62,19 +62,22 @@ export default {
   border-right: 2px solid black;
 }
 #add-questline-button{
-  cursor: pointer;
   margin-top:30px;
   text-align: center;
 }
 .quest-nav-title{
   text-align: left;
   border: 1px solid black;
+  border-left: 0px;
   padding:10px;
   margin: 0 0 0 auto;
   width:calc(100% - 20px);
+  cursor: pointer;
 }
 .quest-nav{
   border-top: 0px;
+  border-right:0px;
+  border-left: 1px solid black;
   width:80%;
 }
 
