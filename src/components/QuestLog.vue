@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import QuestNav from '@/components/QuestNav.vue'
-import QuestView from '@/components/QuestView.vue'
+import QuestNav from '@/components/QuestNav/QuestNav.vue'
+import QuestView from '@/components/QuestView/QuestView.vue'
 
 export default {
   name: 'QuestLog',

@@ -1,15 +1,18 @@
 <template>
-    <div></div>
+    <div>
+    </div>
 </template>
 
 <script>
+
 export default {
-  name: 'QuestNav'
+  name: 'Objective'
 }
 </script>
 
 <style scoped>
 div{
     border-right: 2px solid black;
+    padding: 20px 10px;
 }
 </style>

@@ -1,15 +1,12 @@
 <template>
-    <div></div>
+    <div class="quest-nav-title"> QuestLineTitle </div>
 </template>
 
 <script>
 export default {
-  name: 'QuestView'
+  name: 'QuestLineTitle'
 }
 </script>
 
 <style scoped>
-div{
-    background-color:thistle;
-}
 </style>
