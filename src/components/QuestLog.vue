@@ -1,7 +1,14 @@
 <template>
   <div class="main-container center">
-    <quest-nav></quest-nav>
-    <quest-view></quest-view>
+    <quest-nav
+    ref="questnav"
+    :quests = currentQuests
+    @questSelected = questSelected
+    ></quest-nav>
+    <quest-view
+    ref="questview"
+    :selectedQuest = selectedQuest
+    ></quest-view>
   </div>
 </template>
 
@@ -15,7 +22,56 @@ export default {
     QuestNav,
     QuestView
   },
-  props: { }
+  props: {
+    quests: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
+  data () {
+    return {
+      currentQuests: [],
+      selectedQuest: {}
+    }
+  },
+  methods: {
+    async init () {
+      // get quest request
+      this.currentQuests = this.quests
+      if (this.currentQuests.length === 0) {
+        this.currentQuests = [{
+          id: 1,
+          title: 'Quest Line 1',
+          quests: [{
+            id: 1001,
+            index: 1,
+            title: 'Quest 1',
+            description: ''
+          },
+          {
+            id: 1002,
+            index: 2,
+            title: 'Quest 2',
+            description: ''
+          }]
+        }]
+      }
+      this.selectedQuest = this.currentQuests[0].quests[0]
+    },
+    questSelected (id) {
+      this.selectedQuest = this.currentQuests.map(questLine => questLine.quests)[0]
+        .filter(quest => quest.id === id)[0]
+      this.$refs.questview.init()
+    }
+  },
+  mounted () {
+    // await this.init()
+    this.init().then((result) => {
+      this.$refs.questnav.init()
+    })
+  }
 }
 </script>
 

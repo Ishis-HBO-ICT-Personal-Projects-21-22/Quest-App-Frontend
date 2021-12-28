@@ -1,6 +1,9 @@
 <template>
-    <div>
-      <quest-details></quest-details>
+    <div id="questview">
+      <quest-details
+      :title = selectedQuest.title
+      :description = selectedQuest.description
+      ></quest-details>
       <quest-objectives></quest-objectives>
     </div>
 </template>
@@ -14,12 +17,21 @@ export default {
   components: {
     QuestDetails,
     QuestObjectives
+  },
+  props: {
+    selectedQuest: null
+  },
+  methods: {
+    async init () {}
+  },
+  mounted () {
+    this.init()
   }
 }
 </script>
 
 <style scoped>
-div{
-    background-color:thistle;
+#questview{
+  padding:10px;
 }
 </style>

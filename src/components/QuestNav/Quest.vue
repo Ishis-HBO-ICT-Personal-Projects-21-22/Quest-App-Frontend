@@ -13,9 +13,7 @@ export default {
   },
   methods: {
     questSelected () {
-      console.log(this.id)
-      console.log(this.title)
-      console.log(this.index)
+      this.$emit('questSelected', this.id)
     }
   }
 

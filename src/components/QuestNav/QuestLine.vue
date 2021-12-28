@@ -6,7 +6,9 @@
           :key="quest.id"
           :id="quest.id"
           :title="quest.title"
-          :index="quest.index">
+          :index="quest.index"
+          @questSelected = questSelected
+          >
           </quest>
         </div>
         <div id="add-quest-button" class="quest-nav-title quest-nav" @click="addquest">+</div>
@@ -51,6 +53,9 @@ export default {
         title: 'Quest ' + nextIndex,
         index: nextIndex
       })
+    },
+    questSelected (id) {
+      this.$emit('questSelected', id)
     }
   },
   mounted () {
