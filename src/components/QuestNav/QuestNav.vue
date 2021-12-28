@@ -1,6 +1,11 @@
 <template>
     <div id="quest-nav-styling">
-      <quest-line></quest-line>
+      <quest-line v-for="questline in questsLines"
+      :key = "questline.id"
+      :id = "questline.id"
+      :title = "questline.title"
+      :quests = "questline.quests">
+      </quest-line>
       <div id="add-questline-button" class="quest-nav-title" @click="addquestline">+</div>
     </div>
 </template>
@@ -13,10 +18,33 @@ export default {
   components: {
     QuestLine
   },
+  data () {
+    return {
+      questsLines: []
+    }
+  },
   methods: {
+    async init () {
+      // get quests
+      if (this.questsLines.length === 0) {
+        this.questsLines = [{
+          id: 1,
+          title: 'Quest Line 1',
+          quests: [{
+            id: 1, title: 'quest 1'
+          },
+          {
+            id: 2, title: 'quest 2'
+          }]
+        }]
+      }
+    },
     addquestline () {
       console.log('yes')
     }
+  },
+  mounted () {
+    this.init()
   }
 }
 </script>
@@ -24,6 +52,7 @@ export default {
 <style>
 #add-questline-button{
   cursor: pointer;
+  margin-top:30px;
 }
 #quest-nav-styling{
   border-right: 2px solid black;

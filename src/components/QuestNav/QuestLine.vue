@@ -2,7 +2,7 @@
     <div>
         <quest-line-title></quest-line-title>
         <div>
-          <quest v-for="quest in quests"
+          <quest v-for="quest in currentQuests"
           :key="quest.id"
           :title="quest.title"
           >
@@ -21,19 +21,28 @@ export default {
     QuestLineTitle,
     Quest
   },
+  props: {
+    id: null,
+    title: null,
+    quests: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
   data () {
     return {
-      quests: []
+      currentQuests: []
+    }
+  },
+  methods: {
+    async init () {
+      this.currentQuests = this.quests
     }
   },
   mounted () {
-    this.quests.push({
-      id: 1, title: 'quest 1'
-    },
-    {
-      id: 2, title: 'quest 2'
-    }
-    )
+    this.init()
   }
 }
 </script>
