@@ -1,6 +1,6 @@
 <template>
     <div>
-        <quest-line-title></quest-line-title>
+        <quest-line-title :title = title></quest-line-title>
         <div>
           <quest v-for="quest in currentQuests"
           :key="quest.id"
@@ -8,6 +8,7 @@
           >
           </quest>
         </div>
+        <div id="add-quest-button" class="quest-nav-title quest-nav" @click="addquest">+</div>
     </div>
 </template>
 
@@ -38,7 +39,15 @@ export default {
   },
   methods: {
     async init () {
+      console.log(this.title)
       this.currentQuests = this.quests
+    },
+    addquest () {
+      const nextId = Math.max(...this.currentQuests.map(quest => quest.id)) + 1
+      this.currentQuests.push({
+        id: nextId,
+        title: 'Quest ' + nextId
+      })
     }
   },
   mounted () {
@@ -48,4 +57,8 @@ export default {
 </script>
 
 <style scoped>
+#add-quest-button{
+  padding:5px 10px;
+  height:15px;
+}
 </style>

@@ -1,10 +1,13 @@
 <template>
-    <div class="quest-nav-title"> QuestLineTitle </div>
+    <div class="quest-nav-title"> {{title}} </div>
 </template>
 
 <script>
 export default {
-  name: 'QuestLineTitle'
+  name: 'QuestLineTitle',
+  props: {
+    title: null
+  }
 }
 </script>
 
