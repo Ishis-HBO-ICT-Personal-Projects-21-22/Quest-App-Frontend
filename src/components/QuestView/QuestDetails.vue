@@ -18,6 +18,7 @@ export default {
   },
   data () {
     return {
+      currentTitle: '',
       currentDescription: '',
       descriptionDisabled: true
     }
@@ -31,14 +32,17 @@ export default {
 </script>
 
 <style scoped>
+h2{
+  margin:0px;
+}
 .description{
   border: 1px solid black;
-  height: 100px;
+  height: 180px;
 }
 textarea{
+  background-color: transparent;
   height:100%;
   width:100%;
-  border: 1px solid black;
   border: none;
   overflow: auto;
   outline: none;
@@ -48,7 +52,6 @@ textarea{
   box-shadow: none;
 }
 textarea .disabled{
-  background-color: white;
   color:black;
   pointer-events: auto;
 }

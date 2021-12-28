@@ -48,13 +48,19 @@ export default {
             id: 1001,
             index: 1,
             title: 'Quest 1',
-            description: ''
+            description: '',
+            objectives: [{
+              title: 'objective 1'
+            }]
           },
           {
             id: 1002,
             index: 2,
             title: 'Quest 2',
-            description: ''
+            description: '',
+            objectives: [{
+              title: 'objective 1'
+            }]
           }]
         }]
       }
@@ -70,7 +76,7 @@ export default {
     // await this.init()
     this.init().then((result) => {
       this.$refs.questnav.init()
-    })
+    }).then((result) => this.$refs.questview.init())
   }
 }
 </script>

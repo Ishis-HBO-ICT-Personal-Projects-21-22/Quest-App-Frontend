@@ -4,7 +4,10 @@
       :title = selectedQuest.title
       :description = selectedQuest.description
       ></quest-details>
-      <quest-objectives></quest-objectives>
+      <quest-objectives id="overview-questobjectives"
+      :objectives = selectedQuest.objectives
+      ref="questobjectives"
+      ></quest-objectives>
     </div>
 </template>
 
@@ -22,7 +25,9 @@ export default {
     selectedQuest: null
   },
   methods: {
-    async init () {}
+    async init () {
+      this.$refs.questobjectives.init()
+    }
   },
   mounted () {
     this.init()
@@ -32,6 +37,11 @@ export default {
 
 <style scoped>
 #questview{
-  padding:10px;
+  padding:20px 10px;
+  display:grid;
+  grid-template-rows: 40% 60%;
+}
+
+#overview-questobjectives{
 }
 </style>
